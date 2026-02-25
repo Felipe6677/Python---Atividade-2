@@ -1,3 +1,5 @@
-preco = float(input("Preço do produto: "))
+preco = float(input("Preço do produto:"))
 imposto = 1.1
-print("Preço com imposto:", preco * imposto)
+total = preco * imposto
+
+print(f"Preço com imposto: R$ {total:.2f}")

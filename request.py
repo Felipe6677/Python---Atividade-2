@@ -1,12 +1,14 @@
 import requests
 
-nome = input("Digite um número para descobrir o pokemon: ").strip().lower()
+nome = input("Digite um número ou nome do Pokémon: ").strip().lower()
 url = f"https://pokeapi.co/api/v2/pokemon/{nome}"
 
 resposta = requests.get(url)
-dados = resposta.json()
 
-print("Nome:", dados["name"])
-
-## Instale o módulo requests
-## No terminal, execute: pip install requests
+if resposta.status_code == 200:
+    dados = resposta.json()
+    print("Nome:", dados["name"].capitalize())
+    print("ID:", dados["id"])
+    print("Tipo(s):", ", ".join([t['type']['name'].capitalize() for t in dados['types']]))
+else:
+    print("Pokémon não encontrado! Verifique o número ou nome digitado.")

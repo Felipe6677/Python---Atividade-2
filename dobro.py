@@ -1,8 +1,9 @@
 def dobro(x):
     return float(x) * 2
 
-valor = input("Digite um número: ")
-if valor == "":
-    valor = None
+valor = input("Digite um número:")
 
-print(dobro(valor))
+if valor == "":
+    print("Você não digitou nenhum número.")
+else:
+    print(dobro(valor))
